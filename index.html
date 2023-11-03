@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            background: radial-gradient(rgb(250, 192, 3), rgb(252, 244, 160));
+        }
+        .section {
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+        }
+        li {
+            color: white;
+            font-size: 128px;
+            font-family: 'Noto sans KR', sans-serif;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <ul>
+                <li>D</li>
+                <li>E</li>
+                <li>S</li>
+                <li>I</li>
+                <li>G</li>
+                <li>N</li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        const design = document.querySelectorAll('.container li')
+        console.log(design)
+
+        const tl = gsap.timeline({repeat:-1});
+
+        tl.from(design, {
+            duration: 1,
+            scale: 10,
+            alpha: 0,
+            ease: "bounce.out",
+            stagger: .7
+        })
+        tl.to(design, {
+            duration: 1,
+            rotate: 360,
+            scale: 300,
+            alpha:0,
+            ease: Power1.easeInout,
+            stagger: -.7,
+        }).to(design, {
+            duration:1,
+            alpha:1,
+            scale:1,
+            stagger: .7
+        }).to(design, {
+            duration:1,
+            alpha:0,
+            stagger: .7
+        })
+    </script>
+</body>
+</html>
